@@ -77,8 +77,8 @@ export class Dropdown extends React.Component {
           <div id={id}
             className='dropdown'
             ref={this.wrapperRef}>
-            <div className='ros-dropdown-topbar'>
-              <div className='ros-dropdown-topbar-chevron' />
+            <div className='dropdown-topbar'>
+              <div className='dropdown-topbar-chevron' />
             </div>
             {children}
           </div>

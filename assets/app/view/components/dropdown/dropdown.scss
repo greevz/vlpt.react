@@ -12,6 +12,8 @@
   transition-property: opacity, margin-top;
   transition-timing-function: ease-in-out;
   transition-duration: 0.2s;
+  right: 30px;
+  top: 55px;
 }
 
 .dropdown-enter {
@@ -52,15 +54,22 @@
 }
 
 .dropdown-content {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 15px;
   background-color: #222C3C;
   color: #FFFFFF;
   font-size: 12px;
+  white-space: nowrap;
+
+  > .link {
+    margin-left: 5px;
+  }
 }
 
 .dropdown-content--secondary {
-  background-color: #7F8FA4;
+  background-color: #2C3748;
 }
 
 .dropdown-content--profile {
@@ -74,7 +83,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
   padding: 10px;
   background-color: #222C3C;

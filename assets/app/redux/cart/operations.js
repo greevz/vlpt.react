@@ -1,4 +1,4 @@
-import { find, map } from 'lodash'
+import { find, map, remove } from 'lodash'
 import actions from './actions'
 import { localStorageService } from 'services'
 import { CartItemModel } from 'models'
@@ -16,8 +16,7 @@ const fetchAndSetCart = () => async (dispatch) => {
 const addProductToCart = (product) => async (dispatch) => {
   const cart = await localStorageService.getCart()
 
-  // Find existing cart item.
-  const cartItem = find(cart, { name: product.name })
+  const cartItem = find(cart, (cartItem) => cartItem.product.name === product.name)
 
   if (!cartItem) {
     cart.push(new CartItemModel({
@@ -28,7 +27,25 @@ const addProductToCart = (product) => async (dispatch) => {
     cartItem.quantity += 1
   }
 
-  await localStorage.setCart(map(cart, (cartItem) => cartItem.serialise()))
+  await localStorageService.setCart(map(cart, (cartItem) => cartItem.serialise()))
+
+  await dispatch(setCart(cart))
+
+  return cart
+}
+
+const removeProductFromCart = (product) => async (dispatch) => {
+  const cart = await localStorageService.getCart()
+
+  const cartItem = find(cart, (cartItem) => cartItem.product.name === product.name)
+
+  if (cartItem.quantity === 1) {
+    remove(cart, (cartItem) => cartItem.product.name === product.name)
+  } else {
+    cartItem.quantity -= 1
+  }
+
+  await localStorageService.setCart(map(cart, (cartItem) => cartItem.serialise()))
 
   await dispatch(setCart(cart))
 
@@ -36,7 +53,8 @@ const addProductToCart = (product) => async (dispatch) => {
 }
 
 export default {
-  setCart,
+  addProductToCart,
   fetchAndSetCart,
-  addProductToCart
+  removeProductFromCart,
+  setCart,
 }

@@ -26,7 +26,7 @@ export class DropdownToggle extends React.Component {
     const { children, dropdownId } = this.props
 
     return (
-      <button className='dropdown-toggle'
+      <button className='button button--primary'
         data-dropdown-id={dropdownId}
         onClick={this.onToggleClick}>
         {children}

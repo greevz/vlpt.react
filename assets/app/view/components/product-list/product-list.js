@@ -61,7 +61,7 @@ class ProductList extends React.Component {
                   <td>{product.name}</td>
                   <td>{product.getDisplayPrice()}</td>
                   <td className='td--tight'>
-                    <a className='link' href='javascript:void(0)' onClick={this.onAddProductClick}>
+                    <a className='link' href='javascript:void(0)' onClick={() => this.onAddProductClick(product)}>
                       Add Product
                     </a>
                   </td>
