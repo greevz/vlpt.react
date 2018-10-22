@@ -46,17 +46,17 @@ class ProductListPage extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {map(products, (product, index) => {
+              {map(products, (product, index) => (
                 <tr key={index}>
                   <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>
-                    <a className='vlpt-link' href='javascript:void(0)' onClick={this.onAddProductClick}>
+                  <td>{product.getDisplayPrice()}</td>
+                  <td className='td--tight'>
+                    <a className='link' href='javascript:void(0)' onClick={this.onAddProductClick}>
                       Add Product
                     </a>
                   </td>
                 </tr>
-              })}
+              ))}
             </tbody>
           </table>
         </Section>

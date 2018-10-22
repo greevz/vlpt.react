@@ -17,4 +17,4 @@ const App = () => (
   </Provider>
 )
 
-ReactDOM.render(<App />, document.getElementById('phtt-app'))
+ReactDOM.render(<App />, document.getElementById('vlpt-app'))
