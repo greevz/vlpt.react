@@ -1,8 +1,6 @@
 import actions from './actions'
 import { productResource } from 'resources'
 
-const setProduct = actions.setProduct
-
 const setProducts = actions.setProducts
 
 const fetchAndSetProducts = () => async (dispatch) => {
@@ -15,6 +13,5 @@ const fetchAndSetProducts = () => async (dispatch) => {
 
 export default {
   fetchAndSetProducts,
-  setProduct,
   setProducts,
 }

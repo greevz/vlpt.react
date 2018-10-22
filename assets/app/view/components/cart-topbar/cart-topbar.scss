@@ -1,0 +1,19 @@
+@import "non-styles.scss";
+
+.cart-topnav {
+  height: 50px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #222C3C;
+  padding: 0 10px;
+  border-bottom: 1px solid #313D4F;
+}
+
+.ros-topnav-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 900px;
+}

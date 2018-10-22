@@ -1,15 +1,15 @@
 import types from './types'
 
 const initialState = {
-  products: []
+  cart: []
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
-  case types.SET_PRODUCTS:
+  case types.SET_CART:
     return {
       ...state,
-      products: action.products
+      cart: action.cart
     }
   default:
     return state

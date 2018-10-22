@@ -4,10 +4,14 @@ import PropTypes from 'prop-types'
 
 import { reduxService } from 'services'
 
-import { LoadingPage, Section } from 'view/components'
+import {
+  LoadingPage,
+  Section
+} from 'view/components'
 
-class ProductListPage extends React.Component {
+class ProductList extends React.Component {
   static propTypes = {
+    addProductToCart: PropTypes.func.isRequired,
     products: PropTypes.array.isRequired,
     fetchAndSetProducts: PropTypes.func.isRequired,
   }
@@ -26,6 +30,12 @@ class ProductListPage extends React.Component {
     await fetchAndSetProducts()
 
     this.setState({ loading: false })
+  }
+
+  onAddProductClick = (product) => {
+    const { addProductToCart } = this.props
+
+    addProductToCart(product)
   }
 
   render () {
@@ -65,4 +75,4 @@ class ProductListPage extends React.Component {
   }
 }
 
-export default reduxService.connect(ProductListPage)
+export default reduxService.connect(ProductList)

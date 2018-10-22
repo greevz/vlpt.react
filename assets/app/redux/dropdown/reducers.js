@@ -1,15 +1,15 @@
 import types from './types'
 
 const initialState = {
-  products: []
+  visibleDropdownId: null
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
-  case types.SET_PRODUCTS:
+  case types.SET:
     return {
       ...state,
-      products: action.products
+      visibleDropdownId: action.visibleDropdownId
     }
   default:
     return state

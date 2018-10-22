@@ -8,12 +8,16 @@ import { Provider } from 'react-redux'
 import store from 'redux/store'
 
 import {
+  CartTopbar,
   ProductList
-} from 'view/pages'
+} from 'view/components'
 
 const App = () => (
   <Provider store={store}>
-    <ProductList />
+    <React.Fragment>
+      <CartTopbar />
+      <ProductList />
+    </React.Fragment>
   </Provider>
 )
 
